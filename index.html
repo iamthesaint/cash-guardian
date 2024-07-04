@@ -11,22 +11,88 @@
 </head>
 
 <body>
+
+  <header>
+    <h1>Welcome to Cash Guardian</h1>
+  </header>
+
+  <hr id="header-line">
+
+  <h2>&#129031; Sign Up Form &#129031;</h2>
+
   <main class="container">
     <form>
+
+      <!-- Name and Salary -->
+
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <h3>Name and Salary:</h3>
+        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
       </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input type="text" class="form-control" placeholder="Monthly Salary" aria-label="Monthly Salary (to the nearest dollar)">
+        <span class="input-group-text">.00</span>
       </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+      <hr>
+
+      <!-- Budget Goal -->
+
+      <div>
+        <p>What is your budget goal for this month?</p>
+        <textarea class="form-control" aria-label="Budget Goal"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+
+      <hr>
+
+      <!-- Budget Categories -->
+
+      <p>Choose the categories you want to focus on:</p>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check">
+        <label class="form-check-label" for="food-and-drink-check">
+          Food & Drink
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="housing-check">
+        <label class="form-check-label" for="housing-check">
+          Housing
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="insurance-check">
+        <label class="form-check-label" for="insurance-check">
+          Insurance
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="loan-payments-check">
+        <label class="form-check-label" for="loan-payments-check">
+          Loan Payments
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="transportation-check">
+        <label class="form-check-label" for="transportation-check">
+          Transportation
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="utilities-check">
+        <label class="form-check-label" for="utilities-check">
+          Utilities
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="other-check">
+        <label class="form-check-label" for="other-check">
+          Other
+        </label>
+      </div>
+
     </form>
   </main>
 
