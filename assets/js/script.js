@@ -7,9 +7,9 @@ const housingInput = document.getElementById('housing');
 const insuranceInput = document.getElementById('insurance');
 const loanPaymentInput = document.getElementById('loan-payments');
 const transportationInput = document.getElementById('transportation');
+// TODO const entertainmentInput = document.getElementById('entertainment');
 const otherInput = document.getElementById('other');
 const submitButton = document.getElementById('submitButton');
-// TODO const entertainmentInput = document.getElementById('entertainment-check');
 
 
 // store values to local storage
@@ -20,27 +20,45 @@ submitButton.addEventListener('click', function (event) {
         name: nameInput.value,
         monthlyIncome: monthlyIncomeInput.value,
         budgetGoal: budgetGoalInput.value,
-        foodDrink: foodDrinkInput.value,
-        housing: housingInput.value,
-        insurance: insuranceInput.value,
-        loanPayment: loanPaymentInput.value,
-        transportation: transportationInput.value,
-        other: otherInput.value,
-        // TODO entertainment: entertainmentInput.value,
     };
     localStorage.setItem('userData', JSON.stringify(userData));
+
+    const expenses = {
+        foodDrink: checkValue(foodDrinkInput.value),
+        housing: checkValue(housingInput.value),
+        insurance: checkValue(insuranceInput.value),
+        loanPayment: checkValue(loanPaymentInput.value),
+        transportation: checkValue(transportationInput.value),
+        // TODO entertainment: checkValue(entertainmentInput.value),
+        other: checkValue(otherInput.value),
+    }
+    localStorage.setItem('expenses', JSON.stringify(expenses));
 
     calcBudget();
 });
 
 
-// convert & calc budget
+// calculate budget
 function calcBudget() {
     const userData = JSON.parse(localStorage.getItem('userData'));
+    const expenses = JSON.parse(localStorage.getItem('expenses'))
     let budgetRemaining = userData.monthlyIncome;
-    console.log(budgetRemaining);
+
+    for (const value in expenses) {
+        budgetRemaining -= expenses[value];
+    }
+    
+    // TODO 
 }
 
+function checkValue(value) {
+    if (value === "") {
+        return 0;
+    }
+    else {
+        return value;
+    }
+}
 
 function displayFoodDrink() {
     var checkBox = document.getElementById("food-and-drink-check");
