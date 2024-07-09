@@ -48,7 +48,7 @@ function calcBudget() {
         budgetRemaining -= expenses[value];
     }
     
-    // TODO 
+    
 }
 
 function checkValue(value) {
