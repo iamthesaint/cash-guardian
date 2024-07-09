@@ -27,11 +27,11 @@
 
       <div class="mb-3">
         <h3>Name and Salary:</h3>
-        <input type="text" class="form-control" placeholder="Name" aria-label="Name">
+        <input type="text" id='name' class="form-control" placeholder="Name" aria-label="Name">
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" placeholder="Monthly Salary" aria-label="Monthly Salary (to the nearest dollar)">
+        <input type="text" id='monthly-income' class="form-control" placeholder="Monthly Salary" aria-label="Monthly Salary (to the nearest dollar)">
         <span class="input-group-text">.00</span>
       </div>
 
@@ -41,7 +41,7 @@
 
       <div>
         <p>What is your budget goal for this month?</p>
-        <textarea class="form-control" aria-label="Budget Goal"></textarea>
+        <textarea id='budget-goal'class="form-control" aria-label="Budget Goal"></textarea>
       </div>
 
       <hr>
@@ -51,48 +51,55 @@
       <p>Choose the categories you want to focus on:</p>
 
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check">
-        <label class="form-check-label" for="food-and-drink-check">
+        <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check" onclick="displayFoodDrink()">
+        <label class="form-check-label" for="food-and-drink-check"> 
           Food & Drink
         </label>
+        <input type="text" id='food-and-drink' style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="housing-check">
+        <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
         <label class="form-check-label" for="housing-check">
           Housing
         </label>
+        <input type="text" id="housing" style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="insurance-check">
+        <input class="form-check-input" type="checkbox" value="" id="insurance-check" onclick="displayInsurance()">
         <label class="form-check-label" for="insurance-check">
           Insurance
         </label>
+        <input type="text" id="insurance" style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="loan-payments-check">
+        <input class="form-check-input" type="checkbox" value="" id="loan-payments-check" onclick="displayLoanPayments()">
         <label class="form-check-label" for="loan-payments-check">
           Loan Payments
         </label>
+        <input type="text" id="loan-payments" style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="transportation-check">
+        <input class="form-check-input" type="checkbox" value="" id="transportation-check" onclick="displayTransportation()">
         <label class="form-check-label" for="transportation-check">
           Transportation
         </label>
+        <input type="text" id="transportation" style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="utilities-check">
+        <input class="form-check-input" type="checkbox" value="" id="utilities-check" onclick="displayUtilities()">
         <label class="form-check-label" for="utilities-check">
           Utilities
         </label>
+        <input type="text" id="utilites" style="display:none">
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="other-check">
+        <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
         <label class="form-check-label" for="other-check">
           Other
         </label>
+        <input type="text" id="other" style="display:none">
       </div>
-
+      <button id="submitButton">Submit</button>
     </form>
   </main>
 
