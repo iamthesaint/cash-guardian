@@ -7,7 +7,7 @@ const housingInput = document.getElementById('housing');
 const insuranceInput = document.getElementById('insurance');
 const loanPaymentInput = document.getElementById('loan-payments');
 const transportationInput = document.getElementById('transportation');
-const utilitesInput = document.getElementById('utilities');
+const utilitiesInput = document.getElementById('utilities');
 const entertainmentInput = document.getElementById('entertainment');
 const otherInput = document.getElementById('other');
 const submitButton = document.getElementById('submitButton');
@@ -36,7 +36,7 @@ submitButton.addEventListener('click', function (event) {
     insurance: updateValue(storedExpenses.insurance, insuranceInput.value),
     loanPayment: updateValue(storedExpenses.loanPayment, loanPaymentInput.value),
     transportation: updateValue(storedExpenses.transportation, transportationInput.value),
-    utilites: updateValue(storedExpenses.utilites, utilitesInput.value),
+    utilities: updateValue(storedExpenses.utilities, utilitiesInput.value),
     entertainment: updateValue(storedExpenses.entertainment, entertainmentInput.value),
     other: updateValue(storedExpenses.other, otherInput.value),
   }
@@ -53,7 +53,7 @@ resetButton.addEventListener('click', function(event) {
     insurance: 0,
     loanPayment: 0,
     transportation: 0,
-    utilites: 0,
+    utilities: 0,
     entertainment: 0,
     other: 0,
   }
