@@ -90,7 +90,14 @@
         <label class="form-check-label" for="utilities-check">
           Utilities
         </label>
-        <input type="text" id="utilites" style="display:none">
+        <input type="text" id="utilities" style="display:none">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="entertainment-check" onclick="displayEntertainment()">
+        <label class="form-check-label" for="entertainment-check">
+          Entertainment
+        </label>
+        <input type="text" id="entertainment" style="display:none">
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
@@ -100,6 +107,7 @@
         <input type="text" id="other" style="display:none">
       </div>
       <button id="submitButton">Submit</button>
+      <button id="resetButton">Reset</button>
     </form>
   </main>
 
