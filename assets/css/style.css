@@ -25,6 +25,10 @@
 /*
     * Header CSS
 */
+html, body {
+    height: 100%;
+    margin: 10px;
+  }
 
 header {
     background-color: gray;
@@ -33,6 +37,16 @@ header {
     padding: 10px 0;
     text-align: center;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Use viewport height to ensure minimum height */
+  }
+  
+.main-content {
+    flex: 1; /* Ensures it takes up the available space */
+  }
 
 h1 {
     margin: 10px 0;
@@ -50,10 +64,7 @@ aside {
     border-right: 2.5px solid #333;
     border-bottom: 5px solid #333;
     background-color: #f2f1f7c4;
-
 }
-
-/* Make the height change when the info button is clicked. */
 
 form {
     margin: 10px;
@@ -116,8 +127,14 @@ main {
     height: 580px;
     float: right;
     background-color: #f2f1f7c4;
+    overflow: auto;
 
 }
+
+ul.navbar-nav {
+        display: flex;
+        justify-content: flex-end;
+    }
 
 .description {
     left: 50%;
@@ -178,4 +195,26 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px;
 
+}
+
+.card-title {
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+footer {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
