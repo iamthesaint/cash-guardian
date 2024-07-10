@@ -16,6 +16,48 @@
 
 <body>
 
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome to Cash Guardian!</h1>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+
+            <!-- Name -->
+
+          <div class="mb-3">
+            <h2>Name:</h2>
+            <input type="text" class="form-control" id="modal-name" placeholder="Steven">
+          </div>
+            
+            <!-- Salary -->
+
+          <div class="mb-3">
+            <h2>Monthly Salary:</h2>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input type="text" class="form-control" id="modal-salary" placeholder="5500"
+              aria-label="Monthly Salary (to the nearest dollar)">
+            <span class="input-group-text">.00</span>
+          </div>
+
+        </div>
+        <div class="modal-footer" id="modal-button">
+          <button type="button" class="btn btn-primary" id="submit-modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- navbar just to separate the logo from the rest of the page - maybe include an about us and contact -->
 
   <nav class="navbar navbar-expand-md">
@@ -36,36 +78,31 @@
   </nav>
 
   <aside>
-    <form id="form">
+    <form>
       <div id="padding">
-
-        <!-- Salary -->
-
-        <div class="mb-3">
-          <h2>Enter Your Salary:</h2>
-        </div>
-        <div class="input-group mb-3">
-          <span class="input-group-text">$</span>
-          <input type="text" class="form-control" placeholder="Monthly Salary"
-            aria-label="Monthly Salary (to the nearest dollar)">
-          <span class="input-group-text">.00</span>
-        </div>
-
-        <hr>
-
-        <!-- Budget Goal -->
-
-        <div>
-          <h3>What is your budget goal for this month?</h3>
-          <textarea class="form-control" aria-label="Budget Goal"></textarea>
-        </div>
-
-        <hr>
 
         <!-- Budget Categories -->
 
-        <h3>Choose the categories you want to focus on:</h3>
+        <h3>Categories</h3>
 
+        <hr>
+
+        <div id="info-button">
+          <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
+            What's this?
+          </button>
+        </div>
+        <div class="collapse" id="form-info">
+          <div class="card card-body">
+            1. Mark the categories that you spent money on. <br> <br>
+
+            2. Enter the respective amount of money you spent in the box below. <br> <br>
+
+            3. Click the submit button and repeat daily!
+          </div>
+        </div>
+
+        <hr>
 
         <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="entertainment-check">
@@ -118,7 +155,7 @@
       </div>
     </form>
 
-    <div id="submit-button">
+    <div id="form-button">
       <button type="submit" id="submit-form">Submit</button>
     </div>
 

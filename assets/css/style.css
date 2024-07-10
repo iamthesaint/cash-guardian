@@ -1,5 +1,29 @@
 /*
-    * CSS for Header
+    * Modal CSS
+*/
+
+#modal-button {
+    justify-content: center;
+}
+
+#submit-modal {
+    width: 150px;
+    background-color: #4dbf5e;
+    border-color: #4dbf5e;
+}
+
+#submit-modal:hover {
+    background-color: #33b249;
+    border-color: #33b249;
+}
+
+#submit-modal:active {
+    background-color: #2d9e3f;
+    border-color: #2d9e3f;
+}
+
+/*
+    * Header CSS
 */
 
 header {
@@ -16,20 +40,20 @@ h1 {
 }
 
 /*
-   * CSS for Form and Main
+    * Form CSS
 */
 
-/* Form CSS */
-
 aside {
-    width: 25%;
-    height: 580px;
+    width: 20%;
+    height: 800px;
     float: left;
     border-right: 2.5px solid #333;
     border-bottom: 5px solid #333;
     background-color: #f2f1f7c4;
 
 }
+
+/* Make the height change when the info button is clicked. */
 
 form {
     margin: 10px;
@@ -46,10 +70,25 @@ h2 {
 }
 
 h3 {
-    font-size: 16px;
+    text-align: center;
+    padding-top: 5px;
 }
 
-#submit-button {
+hr {
+    margin: 10px 0;
+}
+
+#info-button {
+    text-align: center;
+}
+
+#collapse-info {
+    width: 80%;
+    height: 24px;
+    line-height: 0;
+}
+
+#form-button {
     margin: 10px;
     text-align: center;
     padding-top: 7.5px;
@@ -68,10 +107,12 @@ h3 {
     box-shadow: 0 0 5px #4daa9b;
 }
 
-/* Main CSS */
+/*
+    * Main CSS
+*/
 
 main {
-    width: 75%;
+    width: 80%;
     height: 580px;
     float: right;
     background-color: #f2f1f7c4;
