@@ -1,6 +1,6 @@
 // user input data
-const nameInput = document.getElementById('name');
-const monthlyIncomeInput = document.getElementById('monthly-income');
+const nameInput = document.getElementById('modal-name');
+const salaryInput = document.getElementById('modal-salary');
 const budgetGoalInput = document.getElementById('budget-goal');
 const foodDrinkInput = document.getElementById('food-and-drink');
 const housingInput = document.getElementById('housing');
@@ -10,25 +10,38 @@ const transportationInput = document.getElementById('transportation');
 const utilitiesInput = document.getElementById('utilities');
 const entertainmentInput = document.getElementById('entertainment');
 const otherInput = document.getElementById('other');
-const submitButton = document.getElementById('submitButton');
-const resetButton = document.getElementById('resetButton')
+const submitExpenses = document.getElementById('submit-form');
+const submitModal = document.getElementById('submit-modal');
 
-
-// store user info to local storage
-submitButton.addEventListener('click', function (event) {
+// store user's name and salary
+submitModal.addEventListener('click', function(event) {
   event.preventDefault();
 
-//! userData to be moved to modal input
-  // store user name and budget goal
   const userData = {
     name: nameInput.value,
-    monthlyIncome: monthlyIncomeInput.value,
-    budgetGoal: budgetGoalInput.value,
+    salary: salaryInput.value,
   };
   localStorage.setItem('userData', JSON.stringify(userData));
-//! userData to be moved to modal input
+})
 
-  // update expenses
+// update and store expenses to local storage
+submitExpenses.addEventListener('click', function (event) {
+  event.preventDefault();
+
+  if (!localStorage.getItem('userData')) {
+    const expenses = {
+      foodDrink: 0,
+      housing: 0,
+      insurance: 0,
+      loanPayment: 0,
+      transportation: 0,
+      utilities: 0,
+      entertainment: 0,
+      other: 0,
+    }
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }
+  
   const storedExpenses = JSON.parse(localStorage.getItem('expenses'));
   const expenses = {
     foodDrink: updateValue(storedExpenses.foodDrink, foodDrinkInput.value),
@@ -45,35 +58,15 @@ submitButton.addEventListener('click', function (event) {
   calcBudget();
 }) 
 
-resetButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  const expenses = {
-    foodDrink: 0,
-    housing: 0,
-    insurance: 0,
-    loanPayment: 0,
-    transportation: 0,
-    utilities: 0,
-    entertainment: 0,
-    other: 0,
-  }
-  localStorage.setItem('expenses', JSON.stringify(expenses));
-  alert("Expenses Reset");
-})
 
 // calculate budget
 function calcBudget() {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const expenses = JSON.parse(localStorage.getItem('expenses'))
-  let budgetRemaining = userData.monthlyIncome;
+  let budgetRemaining = userData.salary;
 
   for (const value in expenses) {
     budgetRemaining -= expenses[value];
-  }
-
-  alert("You have $" + budgetRemaining + " remaining this month.");
-  if (budgetRemaining < 0) {
-    alert("You should work on your budgeting");
   }
 }
 
@@ -83,6 +76,16 @@ function updateValue(total, value) {
   }
   else {
     return Number(total) + Number(value);
+  }
+}
+
+function displayEntertainment() {
+  var checkBox = document.getElementById("entertainment-check");
+  var text = document.getElementById("entertainment");
+  if (checkBox.checked == true) {
+    text.style.display = "block";
+  } else {
+    text.style.display = "none";
   }
 }
 
@@ -145,15 +148,7 @@ function displayUtilities() {
     text.style.display = "none";
   }
 }
-function displayEntertainment() {
-  var checkBox = document.getElementById("entertainment-check");
-  var text = document.getElementById("entertainment");
-  if (checkBox.checked == true) {
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
-}
+
 function displayOther() {
   var checkBox = document.getElementById("other-check");
   var text = document.getElementById("other");
