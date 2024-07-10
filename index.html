@@ -15,7 +15,6 @@
 </head>
 
 <body>
-  <!-- navbar just to separate the logo from the rest of the page - maybe include an about us and contact -->
 
   <nav class="navbar navbar-expand-md">
     <a class="navbar-brand">
@@ -132,28 +131,10 @@
 
       <div class="container">
 
-        const config = {
-          type: 'line',
-          data: data,
-          options: {
-            animation: {
-              duration: 2000,
-              onProgress: function(context) {
-                if (context.initial) {
-                  initProgress.value = context.currentStep / context.numSteps;
-                } else {
-                  progress.value = context.currentStep / context.numSteps;
-                }
-              },
-              onComplete: function(context) {
-                if (context.initial) {
-                  console.log('Initial animation finished');
-
         <!-- progress bar -->
         <div class="row">
           <div class="col-4">
             <div class="card" style="width: 18rem;">
-              <!-- card content -->
               <div class="card-body">
                 <h5 class="card-title">Percent Budget Spent</h5>
                 <canvas id="myChart3"></canvas>
