@@ -58,23 +58,22 @@ h1 {
 */
 
 aside {
-    width: 20%;
     height: 800px;
     float: left;
-    border-right: 2.5px solid #333;
-    border-bottom: 5px solid #333;
-    background-color: #f2f1f7c4;
 }
 
-form {
-    margin: 10px;
-    border: 2px solid gray;
-    box-shadow: 0 0 4px gray;
-}
+.wrapper {
+    display: flex;
+  }
 
-#padding {
-    padding: 10px;
-}
+  #sidebar {
+    width: 250px;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
 
 h2 {
     font-size: 20px;
@@ -136,36 +135,6 @@ ul.navbar-nav {
         justify-content: flex-end;
     }
 
-.description {
-    left: 50%;
-    position: absolute;
-    top: 45%;
-    transform: translate(-50%, -55%);
-    text-align: center;
-}
-
-.description h1 {
-    color: #6ab446;
-}
-
-.description p {
-    color: #fff;
-    font-size: 1.3rem;
-    line-height: 1.5;
-}
-
-.description button {
-    border: 1px solid #6ab446;
-    background: #6ab446;
-    border-radius: 0;
-    color: #fff;
-}
-
-.description button:hover {
-    border: 1px solid #fff;
-    background: #fff;
-    color: #000;
-}
 
 .features {
     margin: 4em auto;
