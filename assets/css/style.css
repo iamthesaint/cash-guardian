@@ -22,6 +22,16 @@
     border-color: #2d9e3f;
 }
 
+
+.sidebar {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    justify-content: stretch;
+    height: 100%;
+
+}
+
 /*
     * Header CSS
 */
@@ -57,21 +67,18 @@ h1 {
     * Form CSS
 */
 
-aside {
-    height: 800px;
-    float: left;
-}
-
 .wrapper {
     display: flex;
   }
 
-  #sidebar {
+  .sidebar {
     width: 250px;
+    height: 800px;
+    float: left;
   }
 
   .main-content {
-    flex: 1;
+    flex-grow: 1;
   }
 
 
@@ -130,32 +137,16 @@ main {
 
 }
 
+.app-container {
+    display: flex; /* This makes its children (sidebar and main content) lay out horizontally */
+    height: 100%; /* Adjust as necessary */
+    }
+
 ul.navbar-nav {
         display: flex;
         justify-content: flex-end;
     }
 
-
-.features {
-    margin: 4em auto;
-    padding: 1em;
-    position: relative;
-}
-
-.feature-title {
-    color: #333;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.features img {
-    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-    margin-bottom: 16px;
-}
 
 .card {
     background-color: #ffffff;

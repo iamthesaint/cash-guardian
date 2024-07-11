@@ -17,7 +17,7 @@
 <body>
 
   <!-- Button trigger modal -->
-  
+
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch static backdrop modal
   </button>
@@ -32,7 +32,7 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome to Cash Guardian!</h1>
           <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
-        
+
         <div class="modal-body">
 
           <!-- Name -->
@@ -54,7 +54,7 @@
             <span class="input-group-text">.00</span>
           </div>
         </div>
-        
+
         <div class="modal-footer" id="modal-button">
           <button type="button" class="btn btn-primary" id="submit-modal">Submit</button>
         </div>
@@ -79,123 +79,116 @@
     </div>
   </nav>
 
+  <div class="app-container">
   <!-- Sidebar -->
 
- 
-      <nav id="sidebar">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
+  <div class="sidebar">
 
-        <form>
-          <div id="sidebar-header">
-            <h2>Add Your Expenses...</h2>
-          </div>
-          <div id="sidebar-body">
-            <div class="container-fluid">
+    <form>
+   <div id="form-container">
+        <h2>Add Your Expenses...</h2>
+      </div>
 
-              <div id="padding">
+      <div id="form">
 
-                <!-- Budget Categories -->
+        <!-- Budget Categories -->
 
-          <h3>Categories</h3>
+        <h3>Categories</h3>
 
-          <hr>
+        <hr>
 
-          <div id="info-button">
-            <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-              data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
-              What's this?
-            </button>
-          </div>
-          <div class="collapse" id="form-info">
-            <div class="card card-body">
-              1. Mark the categories that you spent money on. <br> <br>
+        <div id="info-button">
+          <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
+            data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
+            What's this?
+          </button>
+        </div>
+        <div class="collapse" id="form-info">
+          <div class="card card-body">
+            1. Mark the categories that you spent money on. <br> <br>
 
-              2. Enter the respective amount of money you spent in the box below. <br> <br>
+            2. Enter the respective amount of money you spent in the box below. <br> <br>
 
-              3. Click the submit button and repeat daily!
-            </div>
-          </div>
-
-          <hr>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
-              onclick="displayEntertainment()">
-            <label class="form-check-label" for="entertainment-check">
-              Entertainment
-            </label>
-            <input type="text" id="entertainment" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
-              onclick="displayFoodDrink()">
-            <label class="form-check-label" for="food-and-drink-check"> 
-              Food & Drink
-            </label>
-            <input type="text" id="food-and-drink" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="housing-check"
-              onclick="displayHousing()">
-            <label class="form-check-label" for="housing-check">
-              Housing
-            </label>
-            <input type="text" id="housing" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="insurance-check"
-              onclick="displayInsurance()">
-            <label class="form-check-label" for="insurance-check">
-              Insurance
-            </label>
-            <input type="text" id="insurance" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
-              onclick="displayLoanPayments()">
-            <label class="form-check-label" for="loan-payments-check">
-              Loan Payments
-            </label>
-            <input type="text" id="loan-payments" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="transportation-check"
-              onclick="displayTransportation()">
-            <label class="form-check-label" for="transportation-check">
-              Transportation
-            </label>
-            <input type="text" id="transportation" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="utilities-check"
-              onclick="displayUtilities()">
-            <label class="form-check-label" for="utilities-check">
-              Utilities
-            </label>
-            <input type="text" id="utilities" style="display:none">
-          </div>
-
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="other-check"
-              onclick="displayOther()">
-            <label class="form-check-label" for="other-check">
-              Other
-            </label>
-            <input type="text" id="other" style="display:none">
+            3. Click the submit button and repeat daily!
           </div>
         </div>
-      </form>
 
-      <div id="form-button">
-        <button type="submit" id="submit-form">Submit</button>
+        <hr>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
+            onclick="displayEntertainment()">
+          <label class="form-check-label" for="entertainment-check">
+            Entertainment
+          </label>
+          <input type="text" id="entertainment" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
+            onclick="displayFoodDrink()">
+          <label class="form-check-label" for="food-and-drink-check">
+            Food & Drink
+          </label>
+          <input type="text" id="food-and-drink" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
+          <label class="form-check-label" for="housing-check">
+            Housing
+          </label>
+          <input type="text" id="housing" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="insurance-check" onclick="displayInsurance()">
+          <label class="form-check-label" for="insurance-check">
+            Insurance
+          </label>
+          <input type="text" id="insurance" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
+            onclick="displayLoanPayments()">
+          <label class="form-check-label" for="loan-payments-check">
+            Loan Payments
+          </label>
+          <input type="text" id="loan-payments" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="transportation-check"
+            onclick="displayTransportation()">
+          <label class="form-check-label" for="transportation-check">
+            Transportation
+          </label>
+          <input type="text" id="transportation" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="utilities-check" onclick="displayUtilities()">
+          <label class="form-check-label" for="utilities-check">
+            Utilities
+          </label>
+          <input type="text" id="utilities" style="display:none">
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
+          <label class="form-check-label" for="other-check">
+            Other
+          </label>
+          <input type="text" id="other" style="display:none">
+        </div>
       </div>
+    </form>
+
+    <div id="form-button">
+      <button type="submit" id="submit-form">Submit</button>
+    </div>
+  </div>
 
   <!-- Main Content Container -->
   <div class="main-content">
@@ -213,32 +206,32 @@
               <script>
                 const ctxprog = document.getElementById('myChart3');
 
-                  new Chart(ctxprog, {
-                    type: 'line',
-                    data: {
-                      labels: ['Spent', 'Remaining'],
-                      datasets: [{
-                        label: '$ Spent vs Remaining',
-                        data: [1000, 4000],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {
-                      plugins: {
+                new Chart(ctxprog, {
+                  type: 'line',
+                  data: {
+                    labels: ['Spent', 'Remaining'],
+                    datasets: [{
+                      label: '$ Spent vs Remaining',
+                      data: [1000, 4000],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    plugins: {
 
-                        legend: {
-                          position: 'bottom'
-                        },
+                      legend: {
+                        position: 'bottom'
                       },
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
+                    },
+                    scales: {
+                      y: {
+                        beginAtZero: true
                       }
                     }
                   }
+                }
 
-                  );
+                );
 
               </script>
             </div>
@@ -439,8 +432,9 @@
           </div>
         </div>
       </div>
-      <div class="row">
       </div>
+    </div>
+  </div>
   </div>
 
 
@@ -450,6 +444,7 @@
   <script src="./assets/js/script.js"></script>
   </div>
   </main>
+  </div>
   </div>
 
   <!-- Footer -->
