@@ -13,6 +13,7 @@ const otherInput = document.getElementById('other');
 const submitExpenses = document.getElementById('submit-form');
 const submitModal = document.getElementById('submit-modal');
 
+// MODAL
 // store user's name and salary
 submitModal.addEventListener('click', function(event) {
   event.preventDefault();
@@ -24,59 +25,70 @@ submitModal.addEventListener('click', function(event) {
   localStorage.setItem('userData', JSON.stringify(userData));
 })
 
+//FORM & LOCAL STORAGE
 // update and store expenses to local storage
-submitExpenses.addEventListener('click', function (event) {
-  event.preventDefault();
 
-  if (!localStorage.getItem('userData')) {
-    const expenses = {
-      foodDrink: 0,
-      housing: 0,
-      insurance: 0,
-      loanPayment: 0,
-      transportation: 0,
-      utilities: 0,
-      entertainment: 0,
-      other: 0,
-    }
-    localStorage.setItem('expenses', JSON.stringify(expenses));
+document.getElementById('submit-form').addEventListener('click', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    // Get the current expenses from local storage
+    let currentExpenses = JSON.parse(localStorage.getItem('currentExpenses')) || {
+        entertainment: 0,
+        foodDrink: 0,
+        housing: 0,
+        insurance: 0,
+        loanPayment: 0,
+        transportation: 0,
+        utilities: 0,
+        other: 0,
+    };
+
+    // Update the current expenses with the user's input
+    currentExpenses.entertainment += parseFloat(entertainmentInput.value) || 0;
+    currentExpenses.foodDrink += parseFloat(foodDrinkInput.value) || 0;
+    currentExpenses.housing += parseFloat(housingInput.value) || 0;
+    currentExpenses.insurance += parseFloat(insuranceInput.value) || 0;
+    currentExpenses.loanPayment += parseFloat(loanPaymentInput.value) || 0;
+    currentExpenses.transportation += parseFloat(transportationInput.value) || 0;
+    currentExpenses.utilities += parseFloat(utilitiesInput.value) || 0;
+    currentExpenses.other += parseFloat(otherInput.value) || 0;
+
+    // Save the updated expenses to local storage
+    localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
+
+    alert('Your expenses have been saved!');
+});
+
+// Table Creation
+const expenses = JSON.parse(localStorage.getItem('currentExpenses'));
+
+if (!expenses) {
+  console.log('No expenses stored.');
+} else {
+  const table = document.createElement('table');
+
+  const headerRow = document.createElement('tr');
+  const categoryHeader = document.createElement('th');
+  categoryHeader.textContent = 'Category';
+  const amountHeader = document.createElement('th');
+  amountHeader.textContent = 'Amount';
+  headerRow.appendChild(categoryHeader);
+  headerRow.appendChild(amountHeader);
+  table.appendChild(headerRow);
+
+  for (const [category, amount] of Object.entries(expenses)) {
+    const row = document.createElement('tr');
+    const categoryCell = document.createElement('td');
+    categoryCell.textContent = category;
+    const amountCell = document.createElement('td');
+    amountCell.textContent = amount;
+    row.appendChild(categoryCell);
+    row.appendChild(amountCell);
+    table.appendChild(row);
   }
-  
-  const storedExpenses = JSON.parse(localStorage.getItem('expenses'));
-  const expenses = {
-    foodDrink: updateValue(storedExpenses.foodDrink, foodDrinkInput.value),
-    housing: updateValue(storedExpenses.housing, housingInput.value),
-    insurance: updateValue(storedExpenses.insurance, insuranceInput.value),
-    loanPayment: updateValue(storedExpenses.loanPayment, loanPaymentInput.value),
-    transportation: updateValue(storedExpenses.transportation, transportationInput.value),
-    utilities: updateValue(storedExpenses.utilities, utilitiesInput.value),
-    entertainment: updateValue(storedExpenses.entertainment, entertainmentInput.value),
-    other: updateValue(storedExpenses.other, otherInput.value),
-  }
-  localStorage.setItem('expenses', JSON.stringify(expenses));
 
-  calcBudget();
-}) 
-
-
-// calculate budget
-function calcBudget() {
-  const userData = JSON.parse(localStorage.getItem('userData'));
-  const expenses = JSON.parse(localStorage.getItem('expenses'))
-  let budgetRemaining = userData.salary;
-
-  for (const value in expenses) {
-    budgetRemaining -= expenses[value];
-  }
-}
-
-function updateValue(total, value) {
-  if (value === "" || value === 0) {
-    return 0;
-  }
-  else {
-    return Number(total) + Number(value);
-  }
+  document.getElementById('expensesTableContainer').appendChild(table);
 }
 
 function displayEntertainment() {

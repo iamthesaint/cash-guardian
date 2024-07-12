@@ -9,7 +9,6 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -17,7 +16,7 @@
 <body>
 
   <!-- Button trigger modal -->
-
+  
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch static backdrop modal
   </button>
@@ -32,7 +31,7 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome to Cash Guardian!</h1>
           <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
-
+        
         <div class="modal-body">
 
           <!-- Name -->
@@ -54,7 +53,7 @@
             <span class="input-group-text">.00</span>
           </div>
         </div>
-
+        
         <div class="modal-footer" id="modal-button">
           <button type="button" class="btn btn-primary" id="submit-modal">Submit</button>
         </div>
@@ -62,10 +61,15 @@
     </div>
   </div>
 
-  <!-- Navbar -->
-
   <nav class="navbar navbar-expand-md">
-    <img src="./assets/img/cash g (4).jpeg" alt="logo" height="65px" class="navbar-brand">
+    <a class="navbar-brand">
+      <img src="./assets/img/cash g (4).jpeg" alt="logo" height="65px">
+    </a>
+    <div>
+      <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
 
     <div class="collapse navbar-collapse" id="main-navigation">
       <ul class="navbar-nav ms-auto">
@@ -78,206 +82,167 @@
       </ul>
     </div>
   </nav>
+  <div class="main-content">
+    <aside>
+      <form>
+        <div id="padding">
 
-  <div class="app-container">
-  <!-- Sidebar -->
+          <!-- Budget Categories -->
 
-  <div class="sidebar">
+          <h3>Categories</h3>
 
-    <form>
-   <div id="form-container">
-        <h2>Add Your Expenses...</h2>
-      </div>
+          <hr>
 
-      <div id="form">
+          <div id="info-button">
+            <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
+              data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
+              What's this?
+            </button>
+          </div>
+          <div class="collapse" id="form-info">
+            <div class="card card-body">
+              1. Mark the categories that you spent money on. <br> <br>
 
-        <!-- Budget Categories -->
+              2. Enter the respective amount of money you spent in the box below. <br> <br>
 
-        <h3>Categories</h3>
+              3. Click the submit button and repeat daily!
+            </div>
+          </div>
 
-        <hr>
+          <hr>
 
-        <div id="info-button">
-          <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-            data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
-            What's this?
-          </button>
-        </div>
-        <div class="collapse" id="form-info">
-          <div class="card card-body">
-            1. Mark the categories that you spent money on. <br> <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
+              onclick="displayEntertainment()">
+            <label class="form-check-label" for="entertainment-check">
+              Entertainment
+            </label>
+            <input type="text" id="entertainment" style="display:none">
+          </div>
 
-            2. Enter the respective amount of money you spent in the box below. <br> <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
+              onclick="displayFoodDrink()">
+            <label class="form-check-label" for="food-and-drink-check"> 
+              Food & Drink
+            </label>
+            <input type="text" id="food-and-drink" style="display:none">
+          </div>
 
-            3. Click the submit button and repeat daily!
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="housing-check"
+              onclick="displayHousing()">
+            <label class="form-check-label" for="housing-check">
+              Housing
+            </label>
+            <input type="text" id="housing" style="display:none">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="insurance-check"
+              onclick="displayInsurance()">
+            <label class="form-check-label" for="insurance-check">
+              Insurance
+            </label>
+            <input type="text" id="insurance" style="display:none">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
+              onclick="displayLoanPayments()">
+            <label class="form-check-label" for="loan-payments-check">
+              Loan Payments
+            </label>
+            <input type="text" id="loan-payments" style="display:none">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="transportation-check"
+              onclick="displayTransportation()">
+            <label class="form-check-label" for="transportation-check">
+              Transportation
+            </label>
+            <input type="text" id="transportation" style="display:none">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="utilities-check"
+              onclick="displayUtilities()">
+            <label class="form-check-label" for="utilities-check">
+              Utilities
+            </label>
+            <input type="text" id="utilities" style="display:none">
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="other-check"
+              onclick="displayOther()">
+            <label class="form-check-label" for="other-check">
+              Other
+            </label>
+            <input type="text" id="other" style="display:none">
           </div>
         </div>
+      </form>
 
-        <hr>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
-            onclick="displayEntertainment()">
-          <label class="form-check-label" for="entertainment-check">
-            Entertainment
-          </label>
-          <input type="text" id="entertainment" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
-            onclick="displayFoodDrink()">
-          <label class="form-check-label" for="food-and-drink-check">
-            Food & Drink
-          </label>
-          <input type="text" id="food-and-drink" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
-          <label class="form-check-label" for="housing-check">
-            Housing
-          </label>
-          <input type="text" id="housing" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="insurance-check" onclick="displayInsurance()">
-          <label class="form-check-label" for="insurance-check">
-            Insurance
-          </label>
-          <input type="text" id="insurance" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
-            onclick="displayLoanPayments()">
-          <label class="form-check-label" for="loan-payments-check">
-            Loan Payments
-          </label>
-          <input type="text" id="loan-payments" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="transportation-check"
-            onclick="displayTransportation()">
-          <label class="form-check-label" for="transportation-check">
-            Transportation
-          </label>
-          <input type="text" id="transportation" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="utilities-check" onclick="displayUtilities()">
-          <label class="form-check-label" for="utilities-check">
-            Utilities
-          </label>
-          <input type="text" id="utilities" style="display:none">
-        </div>
-
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
-          <label class="form-check-label" for="other-check">
-            Other
-          </label>
-          <input type="text" id="other" style="display:none">
-        </div>
+      <div id="form-button">
+        <button type="submit" id="submit-form">Submit</button>
       </div>
-    </form>
 
-    <div id="form-button">
-      <button type="submit" id="submit-form">Submit</button>
-    </div>
-  </div>
-
-  <!-- Main Content Container -->
-  <div class="main-content">
+    </aside>
 
     <main>
 
-      <!-- Progress Bar -->
+      <div class="container">
 
-      <div class="row">
-        <div class="col-4">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Percent Budget Spent</h5>
-              <canvas id="myChart3"></canvas>
-              <script>
-                const ctxprog = document.getElementById('myChart3');
-
-                new Chart(ctxprog, {
-                  type: 'line',
-                  data: {
-                    labels: ['Spent', 'Remaining'],
-                    datasets: [{
-                      label: '$ Spent vs Remaining',
-                      data: [1000, 4000],
-                      borderWidth: 1
-                    }]
-                  },
-                  options: {
-                    plugins: {
-
-                      legend: {
-                        position: 'bottom'
-                      },
-                    },
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
-                    }
-                  }
-                }
-
-                );
-
-              </script>
+        <!-- progress bar -->
+        <div class="row">
+          <div class="col-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Percent Budget Spent</h5>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Bar Graph -->
-
+        <!-- bar graph card -->
+         
         <div class="col-4">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <canvas id="myChart1"></canvas>
-              <script>
+                <canvas id="myChart1"></canvas>
+                <script>
                 const ctxbar = document.getElementById('myChart1');
 
                 new Chart(ctxbar, {
                   type: 'bar',
                   data: {
-                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                    datasets: [{
-                      label: 'Monthly Spending',
-                      data: [12, 19, 3, 5, 2, 3],
-                      borderWidth: 1
-                    }]
+                  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                  datasets: [{
+                    label: 'Monthly Spending',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                  }]
                   },
                   options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-
-                    scales: {
-                      y: {
-                        beginAtZero: true
-                      }
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  
+                  scales: {
+                    y: {
+                    beginAtZero: true
                     }
+                  }
                   }
                 });
 
-              </script>
+                </script>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-8">
-
-            <!-- Pie Chart -->
-
+            <!-- pie chart card -->
             <div class="card">
               <div class="card-body">
                 <canvas id="myChart"></canvas>
@@ -320,43 +285,18 @@
           </div>
 
           <div class="col-4">
-
-            <!-- Line Chart -->
-
+            <!-- line chart card -->
             <div class="card" style="width: 18rem;">
               <!-- card content -->
               <div class="card-body">
-                <h5 class="card-title">Monthly Spending Trend</h5>
-                <canvas id="myChart2"></canvas>
-                <script>
-                  const ctxline = document.getElementById('myChart2');
+                <h5 class="card-title">Recently Added Spending</h5>
 
-                  new Chart(ctxline, {
-                    type: 'line',
-                    data: {
-                      labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                      datasets: [{
-                        label: 'Spending Over Time',
-                        data: [2, 5, 10, 30, 55, 75],
-                        borderWidth: 1
-                      }]
-                    },
-                    options: {
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  });
-                </script>
+                <div id="expensesTableContainer">
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- Live Spend Chart -->
-
-          <div class="row">
+        <div class="row">
 
             <div class="card">
               <div class="col-sm">
@@ -426,29 +366,18 @@
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-    </div>
-  </div>
-  </div>
+    </main>
 
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>
+    <script src="./assets/js/script.js"></script>
   </div>
-  </main>
-  </div>
-  </div>
-
-  <!-- Footer -->
-
   <footer>
     <div class="card">
       <div class="card-header 
