@@ -1,7 +1,7 @@
 // user input data
 const nameInput = document.getElementById('modal-name');
 const salaryInput = document.getElementById('modal-salary');
-const budgetGoalInput = document.getElementById('budget-goal');
+// const budgetGoalInput = document.getElementById('budget-goal');
 const foodDrinkInput = document.getElementById('food-and-drink');
 const housingInput = document.getElementById('housing');
 const insuranceInput = document.getElementById('insurance');
@@ -28,6 +28,7 @@ submitModal.addEventListener('click', function(event) {
 submitExpenses.addEventListener('click', function (event) {
   event.preventDefault();
 
+  // initialize expenses at 0 if there is no prior user data
   if (!localStorage.getItem('userData')) {
     const expenses = {
       foodDrink: 0,
@@ -42,6 +43,7 @@ submitExpenses.addEventListener('click', function (event) {
     localStorage.setItem('expenses', JSON.stringify(expenses));
   }
   
+  // update stored expense data with new input values
   const storedExpenses = JSON.parse(localStorage.getItem('expenses'));
   const expenses = {
     foodDrink: updateValue(storedExpenses.foodDrink, foodDrinkInput.value),
