@@ -13,6 +13,28 @@ const otherInput = document.getElementById('other');
 const submitExpenses = document.getElementById('submit-form');
 const submitModal = document.getElementById('submit-modal');
 
+// display modal on first page load
+completedModal = localStorage.getItem('completedModalKey');
+
+if (completedModal === null) {
+  window.addEventListener('load', function() {
+    const button = document.getElementById('form-modal'); 
+    button.click();
+  
+  completedModal = true;
+  localStorage.setItem('completedModalKey', completedModal);
+  });
+}
+
+// ! Unable to check for empty input fields before leaving the modal.
+
+/* // check for completion of user data
+function enableSubmit () {
+  submitModal.style.display = 'block';
+}
+
+submitModal.addEventListener('input', enableSubmit); */
+
 // store user's name and salary
 submitModal.addEventListener('click', function(event) {
   event.preventDefault();
