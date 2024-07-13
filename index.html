@@ -16,7 +16,7 @@
 <body>
 
   <!-- Button trigger modal -->
-  
+
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch static backdrop modal
   </button>
@@ -31,7 +31,7 @@
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome to Cash Guardian!</h1>
           <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
         </div>
-        
+
         <div class="modal-body">
 
           <!-- Name -->
@@ -53,7 +53,7 @@
             <span class="input-group-text">.00</span>
           </div>
         </div>
-        
+
         <div class="modal-footer" id="modal-button">
           <button type="button" class="btn btn-primary" id="submit-modal">Submit</button>
         </div>
@@ -123,15 +123,14 @@
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
               onclick="displayFoodDrink()">
-            <label class="form-check-label" for="food-and-drink-check"> 
+            <label class="form-check-label" for="food-and-drink-check">
               Food & Drink
             </label>
             <input type="text" id="food-and-drink" style="display:none">
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="housing-check"
-              onclick="displayHousing()">
+            <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
             <label class="form-check-label" for="housing-check">
               Housing
             </label>
@@ -139,8 +138,7 @@
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="insurance-check"
-              onclick="displayInsurance()">
+            <input class="form-check-input" type="checkbox" value="" id="insurance-check" onclick="displayInsurance()">
             <label class="form-check-label" for="insurance-check">
               Insurance
             </label>
@@ -166,8 +164,7 @@
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="utilities-check"
-              onclick="displayUtilities()">
+            <input class="form-check-input" type="checkbox" value="" id="utilities-check" onclick="displayUtilities()">
             <label class="form-check-label" for="utilities-check">
               Utilities
             </label>
@@ -175,8 +172,7 @@
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="other-check"
-              onclick="displayOther()">
+            <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
             <label class="form-check-label" for="other-check">
               Other
             </label>
@@ -195,178 +191,55 @@
 
       <div class="container">
 
-        <!-- progress bar -->
+         <!-- progress bar -->
+
         <div class="row">
-          <div class="col-4">
-            <div class="card" style="width: 18rem;">
+          <div class="col-6">
+            <div class="card widget-flat">
               <div class="card-body">
-                <h5 class="card-title">Percent Budget Spent</h5>
+                <div class="text-center">
+                  <i class="mdi mdi-currency-usd widget-icon"></i>
+                </div>
+                <h5 class="text-muted fw-normal mt-0" title="Amount of Income Spent">% Income Spent</h5>
+
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                    id=progress-bar aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
               </div>
             </div>
           </div>
 
-        <!-- bar graph card -->
-         
-        <div class="col-4">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
+         <!-- line graph card -->
+
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
                 <canvas id="myChart1"></canvas>
-                <script>
-                const ctxbar = document.getElementById('myChart1');
-
-                new Chart(ctxbar, {
-                  type: 'bar',
-                  data: {
-                  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-                  datasets: [{
-                    label: 'Monthly Spending',
-                    data: [12, 19, 3, 5, 2, 3],
-                    borderWidth: 1
-                  }]
-                  },
-                  options: {
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  
-                  scales: {
-                    y: {
-                    beginAtZero: true
-                    }
-                  }
-                  }
-                });
-
-                </script>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <!-- pie chart card -->
-            <div class="card">
-              <div class="card-body">
-                <canvas id="myChart"></canvas>
-                <script>
-                  const ctxpie = document.getElementById('myChart');
-
-                  new Chart(ctxpie, {
-                    type: 'pie',
-                    data: {
-                      labels: ['Entertainment', 'Food & Drink', 'Housing', 'Insurance', 'Loan Payments', 'Transportation',
-                        'Utilities', 'Other'],
-                      datasets: [{
-                        label: 'Spending By Category',
-                        data: [10, 10, 20, 20, 20, 20],
-                        borderWidth: 2,
-                      }]
-                    },
-                    options: {
-                      responsive: true,
-                      maintainAspectRatio: false,
-                      plugins: {
-
-                        legend: {
-                          position: 'right'
-                        },
-                      },
-                      scales: {
-                        y: {
-                          beginAtZero: true
-                        }
-                      }
-                    }
-                  }
-
-                  );
-
-                </script>
               </div>
             </div>
           </div>
+          <div class="row">
 
-          <div class="col-4">
-            <!-- line chart card -->
-            <div class="card" style="width: 18rem;">
-              <!-- card content -->
-              <div class="card-body">
-                <h5 class="card-title">Recently Added Spending</h5>
+         <!-- pie chart card -->
 
-                <div id="expensesTableContainer">
-                </div>
-              </div>
-            </div>
-          </div>
-        <div class="row">
-
-            <div class="card">
-              <div class="col-sm">
+            <div class="col-8">
+              <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Recently Added Spending</h5>
-
-                  <div data-simplebar="" style="max-height:320px;overflow-x:hidden">
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Groceries</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-danger fw-bold pe-2">-$489</span>
-                      </div>
-                    </div>
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Air BnB Income</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-success fw-bold pe-2">+$1578</span>
-                      </div>
-                    </div>
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Freelance Work</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-success fw-bold pe-2">+$247</span>
-                      </div>
-                    </div>
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Movies</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-danger fw-bold pe-2">-$30</span>
-                      </div>
-                    </div>
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Paycheck</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-success fw-bold pe-2">+$2500</span>
-                      </div>
-                    </div>
-                    <div class="row py-1 align-items-center">
-                      <div class="col-auto">
-                      </div>
-                      <div class="col ps-0">
-                        <p class="text-body">Electric Bill</p>
-                      </div>
-                      <div class="col-auto">
-                        <span class="text-danger fw-bold pe-2">-$250</span>
-                      </div>
-                    </div>
-                  </div>
+                  <canvas id="myChart"></canvas>
                 </div>
               </div>
+            </div>
+          </div>
+
+         <!-- table card -->
+
+          <div class="row">
+            <div class="card">
+              <div class="card-body">
+              <h5 class="card-title">Recently Added Spending</h5>
+
+              <div id="expensesTableContainer"></div>
             </div>
           </div>
         </div>
@@ -380,10 +253,32 @@
   </div>
   <footer>
     <div class="card">
+      <img src="./assets/img/cash g (4).jpeg" alt="cash guardian logo" width="400px">
+
       <div class="card-header 
                     bg-transparent 
                     border-[color]">
-        <p>&copy; 2024 Cash Guardian</p>
+                <h4 class="mt-1 mb-1">Stephenie St.Hilaire</h4>
+        <p class="font-13">Developer</p>
+    </div>
+    <div class="card-header 
+    bg-transparent 
+    border-[color]">
+    <h4 class="mt-1 mb-1">David Janata</h4>
+    <p class="font-13">Developer</p>
+    </div>
+    <div class="card-header 
+    bg-transparent 
+    border-[color]">
+    <h4 class="mt-1 mb-1">Zander Kubajak</h4>
+    <p class="font-13">Developer</p>
+    </div>
+
+
+
+</div>
+
+</div>
   </footer>
 </body>
 

@@ -15,7 +15,7 @@ const submitModal = document.getElementById('submit-modal');
 
 // MODAL
 // store user's name and salary
-submitModal.addEventListener('click', function(event) {
+submitModal.addEventListener('click', function (event) {
   event.preventDefault();
 
   const userData = {
@@ -28,39 +28,43 @@ submitModal.addEventListener('click', function(event) {
 //FORM & LOCAL STORAGE
 // update and store expenses to local storage
 
-document.getElementById('submit-form').addEventListener('click', function(event) {
-    // Prevent the default form submission
-    event.preventDefault();
+document.getElementById('submit-form').addEventListener('click', function (event) {
+  // Prevent the default form submission
+  event.preventDefault();
 
-    // Get the current expenses from local storage
-    let currentExpenses = JSON.parse(localStorage.getItem('currentExpenses')) || {
-        entertainment: 0,
-        foodDrink: 0,
-        housing: 0,
-        insurance: 0,
-        loanPayment: 0,
-        transportation: 0,
-        utilities: 0,
-        other: 0,
-    };
+  // Get the current expenses from local storage
+  let currentExpenses = JSON.parse(localStorage.getItem('currentExpenses')) || {
+    entertainment: 0,
+    foodDrink: 0,
+    housing: 0,
+    insurance: 0,
+    loanPayment: 0,
+    transportation: 0,
+    utilities: 0,
+    other: 0,
+  };
 
-    // Update the current expenses with the user's input
-    currentExpenses.entertainment += parseFloat(entertainmentInput.value) || 0;
-    currentExpenses.foodDrink += parseFloat(foodDrinkInput.value) || 0;
-    currentExpenses.housing += parseFloat(housingInput.value) || 0;
-    currentExpenses.insurance += parseFloat(insuranceInput.value) || 0;
-    currentExpenses.loanPayment += parseFloat(loanPaymentInput.value) || 0;
-    currentExpenses.transportation += parseFloat(transportationInput.value) || 0;
-    currentExpenses.utilities += parseFloat(utilitiesInput.value) || 0;
-    currentExpenses.other += parseFloat(otherInput.value) || 0;
+  // Update the current expenses with the user's input
+  currentExpenses.entertainment += parseFloat(entertainmentInput.value) || 0;
+  currentExpenses.foodDrink += parseFloat(foodDrinkInput.value) || 0;
+  currentExpenses.housing += parseFloat(housingInput.value) || 0;
+  currentExpenses.insurance += parseFloat(insuranceInput.value) || 0;
+  currentExpenses.loanPayment += parseFloat(loanPaymentInput.value) || 0;
+  currentExpenses.transportation += parseFloat(transportationInput.value) || 0;
+  currentExpenses.utilities += parseFloat(utilitiesInput.value) || 0;
+  currentExpenses.other += parseFloat(otherInput.value) || 0;
 
-    // Save the updated expenses to local storage
-    localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
+  // Save the updated expenses to local storage
+  localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
 
-    alert('Your expenses have been saved!');
-});
+  alert('Your expenses have been saved!');
 
-// Table Creation
+//reload page so tables update dynamically
+window.location.reload();
+}
+);
+
+// Dynamic Table Creation
 const expenses = JSON.parse(localStorage.getItem('currentExpenses'));
 
 if (!expenses) {
@@ -80,17 +84,143 @@ if (!expenses) {
   for (const [category, amount] of Object.entries(expenses)) {
     const row = document.createElement('tr');
     const categoryCell = document.createElement('td');
-    categoryCell.textContent = category;
+    categoryCell.textContent = getCategoryLabel(category);
     const amountCell = document.createElement('td');
     amountCell.textContent = amount;
     row.appendChild(categoryCell);
     row.appendChild(amountCell);
     table.appendChild(row);
+    // Remove the extra closing curly brace
+
+    function getCategoryLabel(category) {
+      switch (category) {
+        case 'entertainment':
+          return 'Entertainment';
+        case 'foodDrink':
+          return 'Food and Drink';
+        case 'housing':
+          return 'Housing';
+        case 'insurance':
+          return 'Insurance';
+        case 'loanPayment':
+          return 'Loan Payments';
+        case 'transportation':
+          return 'Transportation';
+        case 'utilities':
+          return 'Utilities';
+        case 'other':
+          return 'Other';
+        default:
+          return category;
+      }
+    }
   }
 
   document.getElementById('expensesTableContainer').appendChild(table);
+  table.style.textAlign = 'center';
 }
 
+//pie chart update with local storage
+
+const labels = ["Housing", "Utilities", "Food and Drink", "Transportation", "Entertainment", "Insurance", "Loan Payments", "Other"];; // Category names
+const data = Object.values(expenses); // Corresponding amounts
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myPieChart =
+
+
+new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Expenses By Category',
+      data: data,
+      backgroundColor: [
+        'red',
+        'orange',
+        'yellow',
+        'green',
+        'blue',
+        'indigo',
+        'violet',
+        'black'
+
+      ],
+      borderWidth: 2,
+    }]
+  },
+  options: {
+    plugins: {
+    title: {
+      display: true,
+      text: 'EXPENSES BY CATEGORY',
+      font: {
+        size: 20,
+        color: 'black',
+      }
+    },
+    responsive: true,
+      legend: {
+        position: 'right'
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+
+}
+
+);
+
+//progress bar update with local storage
+
+const totalExpenses = data.reduce((total, amount) => total + amount, 0);
+const salary = JSON.parse(localStorage.getItem('userData')).salary;
+const progress = (totalExpenses / salary) * 100;
+
+document.getElementById('progress-bar').style.width = `${progress}%`;
+document.getElementById('progress-bar').textContent = `${progress.toFixed(2)}%`;
+
+//line graph update with local storage
+
+const ctx1 = document.getElementById('myChart1');
+const myLineChart =
+
+new Chart(ctx1, {
+  type: 'line',
+  data: {
+    labels: labels,
+    datasets: [{
+      label: 'Money Spent in Dollars',
+      data: data,
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'SPENDING TRENDS',
+        font: {
+          size: 20,
+          color: 'black',
+        }
+      },
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+}
+});
+
+
+// Displaying Expense Inputs in Form
 function displayEntertainment() {
   var checkBox = document.getElementById("entertainment-check");
   var text = document.getElementById("entertainment");

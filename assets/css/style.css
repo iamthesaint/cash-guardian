@@ -154,6 +154,7 @@ ul.navbar-nav {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px;
+    padding: 20px;
 
 }
 
@@ -177,4 +178,21 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+}
+
+#expensesTableContainer {
+    display: flex;
+    justify-content: center;
+    font-family: 'Optima', sans-serif;
+    
+}
+
+td tr th {
+    padding: 7px;
+    text-align: center;
+    justify-content: stretch;
+}
+
+td {
+    color: rgb(255, 83, 83);
 }
