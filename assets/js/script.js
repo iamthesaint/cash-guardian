@@ -41,6 +41,12 @@ submitModal.addEventListener('click', function (event) {
   localStorage.setItem('userData', JSON.stringify(userData));
 })
 
+// create welcome message with user's name from localstorage in .container-welcome
+const userData = JSON.parse(localStorage.getItem('userData'));
+if (userData) {
+  document.getElementById('welcome-message').textContent = `Welcome, ${userData.name}!`;
+}
+
 //FORM & LOCAL STORAGE
 // update and store expenses to local storage
 
@@ -73,7 +79,7 @@ document.getElementById('submit-form').addEventListener('click', function (event
   // Save the updated expenses to local storage
   localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
 
-  window.alert('Your expenses have been saved!');
+  window.alert('Your expenses have been added!');
 
 //reload page so tables update dynamically with every expense submission
 window.location.reload();
@@ -139,7 +145,9 @@ if (!expenses) {
 
 const labels = ["Entertainment", "Food and Drink", "Housing", "Insurance", "Loan Payments", "Other", "Transportation", "Utilities"];; // Category names
 
-const data = Object.values(expenses); // Corresponding amounts
+const data = Object.values(expenses);
+
+ // Corresponding amounts
 
 const ctx = document.getElementById('myChart').getContext('2d');
 const myPieChart =
@@ -181,6 +189,7 @@ new Chart(ctx, {
       }
     },
     responsive: true,
+    maintainAspectRatio: false,
       legend: {
         position: 'right'
       },
@@ -196,7 +205,9 @@ new Chart(ctx, {
 
 );
 
+
 //progress bar update with local storage
+
 
 const totalExpenses = data.reduce((total, amount) => total + amount, 0);
 const salary = JSON.parse(localStorage.getItem('userData')).salary;
@@ -221,6 +232,8 @@ new Chart(ctx1, {
     }]
   },
   options: {
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
@@ -238,7 +251,6 @@ new Chart(ctx1, {
   }
 }
 });
-
 
 // Displaying Expense Inputs in Form
 function displayEntertainment() {
