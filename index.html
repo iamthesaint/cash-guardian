@@ -12,86 +12,75 @@
 
 
 </head>
+<header class="header">
+      <nav class="navbar navbar-expand-md">
+        <div class="navbar-brand">
+          <img src="./assets/img/cash g (4).jpeg" alt="logo" height="65px">
+        <div class="collapse navbar-collapse" id="main-navigation">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#footer">About</a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#footer">Contact</a>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</header>
 
 <body>
+ 
+  <!-- Modal -- only asks name and income-->
 
-  <!-- Button trigger modal -->
 
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button>
-
-  <!-- Modal -->
-
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Welcome to Cash Guardian!</h1>
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          <h5>Let's Begin...</h5>
         </div>
-
         <div class="modal-body">
 
-          <!-- Name -->
+          <!-- name input -->
 
           <div class="mb-3">
             <h2>Name:</h2>
-            <input type="text" class="form-control" id="modal-name" placeholder="Steven">
+            <input type="text" class="form-control" id="modal-name">
           </div>
 
-          <!-- Salary -->
+          <!-- income input -->
 
           <div class="mb-3">
-            <h2>Monthly Salary:</h2>
+            <h2>Gross Monthly Income:</h2>
+            <h1>This is the aggregate amount of money you take IN each month. You may have more than one form of income. Don't forget to add those here too!</h1>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">$</span>
-            <input type="text" class="form-control" id="modal-salary" placeholder="5500"
-              aria-label="Monthly Salary (to the nearest dollar)">
-            <span class="input-group-text">.00</span>
+            <input type="text" class="form-control" id="modal-salary" placeholder="Enter total monthly income (to the nearest dollar)">
+              <span class="input-group-text">.00</span>
           </div>
         </div>
 
         <div class="modal-footer" id="modal-button">
-          <button type="button" class="btn btn-primary" id="submit-modal">Submit</button>
+          <button type="button" class="btn btn-primary btn-small" id="submit-modal">Submit</button>
         </div>
       </div>
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand">
-      <img src="./assets/img/cash g (4).jpeg" alt="logo" height="65px">
-    </a>
-    <div>
-      <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
+  <!-- main content -->
 
-    <div class="collapse navbar-collapse" id="main-navigation">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
   <div class="main-content">
+
+    <!-- form -->
+
     <aside>
       <form>
-        <div id="padding">
+        <div id="form">
 
-          <!-- Budget Categories -->
-
-          <h3>Categories</h3>
-
-          <hr>
+          <!-- expense categories -->
 
           <div id="info-button">
             <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
@@ -108,8 +97,6 @@
               3. Click the submit button and repeat daily!
             </div>
           </div>
-
-          <hr>
 
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
@@ -184,6 +171,7 @@
       <div id="form-button">
         <button type="submit" id="submit-form">Submit</button>
       </div>
+      
 
     </aside>
 
@@ -191,7 +179,7 @@
 
       <div class="container">
 
-         <!-- progress bar -->
+        <!-- progress bar -->
 
         <div class="row">
           <div class="col-6">
@@ -210,7 +198,7 @@
             </div>
           </div>
 
-         <!-- line graph card -->
+          <!-- line graph card -->
 
           <div class="col-6">
             <div class="card">
@@ -221,7 +209,7 @@
           </div>
           <div class="row">
 
-         <!-- pie chart card -->
+            <!-- pie chart card -->
 
             <div class="col-8">
               <div class="card">
@@ -232,18 +220,18 @@
             </div>
           </div>
 
-         <!-- table card -->
+          <!-- table card -->
 
           <div class="row">
             <div class="card">
               <div class="card-body">
-              <h5 class="card-title">Recently Added Spending</h5>
+                <h5 class="card-title">Recently Added Spending</h5>
 
-              <div id="expensesTableContainer"></div>
+                <div id="expensesTableContainer"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -251,34 +239,34 @@
       crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
   </div>
-  <footer>
+  <footer id="footer">
     <div class="card">
       <img src="./assets/img/cash g (4).jpeg" alt="cash guardian logo" width="400px">
 
       <div class="card-header 
                     bg-transparent 
                     border-[color]">
-                <h4 class="mt-1 mb-1">Stephenie St.Hilaire</h4>
+        <h4 class="mt-1 mb-1">Stephenie St.Hilaire</h4>
         <p class="font-13">Developer</p>
-    </div>
-    <div class="card-header 
+      </div>
+      <div class="card-header 
     bg-transparent 
     border-[color]">
-    <h4 class="mt-1 mb-1">David Janata</h4>
-    <p class="font-13">Developer</p>
-    </div>
-    <div class="card-header 
+        <h4 class="mt-1 mb-1">David Janata</h4>
+        <p class="font-13">Developer</p>
+      </div>
+      <div class="card-header 
     bg-transparent 
     border-[color]">
-    <h4 class="mt-1 mb-1">Zander Kubajak</h4>
-    <p class="font-13">Developer</p>
+        <h4 class="mt-1 mb-1">Zander Kubajak</h4>
+        <p class="font-13">Developer</p>
+      </div>
+
+
+
     </div>
 
-
-
-</div>
-
-</div>
+    </div>
   </footer>
 </body>
 

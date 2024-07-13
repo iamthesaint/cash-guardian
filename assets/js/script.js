@@ -1,7 +1,6 @@
 // user input data
 const nameInput = document.getElementById('modal-name');
 const salaryInput = document.getElementById('modal-salary');
-const budgetGoalInput = document.getElementById('budget-goal');
 const foodDrinkInput = document.getElementById('food-and-drink');
 const housingInput = document.getElementById('housing');
 const insuranceInput = document.getElementById('insurance');
@@ -14,9 +13,26 @@ const submitExpenses = document.getElementById('submit-form');
 const submitModal = document.getElementById('submit-modal');
 
 // MODAL
+
+//launch modal on first visit to page only
+
+if (localStorage.getItem("visited") == null) {
+  localStorage.setItem("visited", "true");
+  let myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+    keyboard: false
+  });
+  myModal.show();
+}
+
 // store user's name and salary
+
 submitModal.addEventListener('click', function (event) {
   event.preventDefault();
+  let myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+    keyboard: false
+  });
+  myModal.hide();
+  window.location.href = 'index.html';
 
   const userData = {
     name: nameInput.value,
@@ -57,9 +73,9 @@ document.getElementById('submit-form').addEventListener('click', function (event
   // Save the updated expenses to local storage
   localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
 
-  alert('Your expenses have been saved!');
+  window.alert('Your expenses have been saved!');
 
-//reload page so tables update dynamically
+//reload page so tables update dynamically with every expense submission
 window.location.reload();
 }
 );
@@ -90,7 +106,6 @@ if (!expenses) {
     row.appendChild(categoryCell);
     row.appendChild(amountCell);
     table.appendChild(row);
-    // Remove the extra closing curly brace
 
     function getCategoryLabel(category) {
       switch (category) {
@@ -122,7 +137,8 @@ if (!expenses) {
 
 //pie chart update with local storage
 
-const labels = ["Housing", "Utilities", "Food and Drink", "Transportation", "Entertainment", "Insurance", "Loan Payments", "Other"];; // Category names
+const labels = ["Entertainment", "Food and Drink", "Housing", "Insurance", "Loan Payments", "Other", "Transportation", "Utilities"];; // Category names
+
 const data = Object.values(expenses); // Corresponding amounts
 
 const ctx = document.getElementById('myChart').getContext('2d');
@@ -130,24 +146,28 @@ const myPieChart =
 
 
 new Chart(ctx, {
-  type: 'doughnut',
+  type: 'pie',
   data: {
     labels: labels,
     datasets: [{
       label: 'Expenses By Category',
       data: data,
       backgroundColor: [
-        'red',
-        'orange',
-        'yellow',
-        'green',
-        'blue',
-        'indigo',
-        'violet',
-        'black'
+      'rgba(194, 249, 112, 0.7)',
+      'rgba(147, 250, 165, 0.7)',
+      'rgba(104, 195, 163, 0.7)',
+      'rgba(13, 180, 185, 0.7)',
+      'rgba(144, 198, 149, 0.7)',
+      'rgba(0, 230, 64, 0.7)',
+      'rgba(123, 239, 178, 0.7)',
+      'rgba(1, 152, 117, 0.7)'
 
       ],
-      borderWidth: 2,
+      borderColor: [
+        'rgba(30, 130, 76, 1)',
+  
+      ],
+      borderWidth: 1,
     }]
   },
   options: {
@@ -156,7 +176,7 @@ new Chart(ctx, {
       display: true,
       text: 'EXPENSES BY CATEGORY',
       font: {
-        size: 20,
+        size: 30,
         color: 'black',
       }
     },
@@ -195,7 +215,7 @@ new Chart(ctx1, {
   data: {
     labels: labels,
     datasets: [{
-      label: 'Money Spent in Dollars',
+      label: 'Money Spent ($)',
       data: data,
       borderWidth: 1
     }]
@@ -206,7 +226,7 @@ new Chart(ctx1, {
         display: true,
         text: 'SPENDING TRENDS',
         font: {
-          size: 20,
+          size: 30,
           color: 'black',
         }
       },
