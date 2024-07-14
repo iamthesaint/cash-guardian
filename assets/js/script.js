@@ -23,6 +23,21 @@ if (completedModal === null) {
   
   completedModal = true;
   localStorage.setItem('completedModalKey', completedModal);
+
+  // initialize expenses at 0 if there is no prior user data
+  if (!localStorage.getItem('userData')) {
+    const expenses = {
+      foodDrink: 0,
+      housing: 0,
+      insurance: 0,
+      loanPayment: 0,
+      transportation: 0,
+      utilities: 0,
+      entertainment: 0,
+      other: 0,
+    }
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }
   });
 }
 
@@ -49,21 +64,6 @@ submitModal.addEventListener('click', function(event) {
 // update and store expenses to local storage
 submitExpenses.addEventListener('click', function (event) {
   event.preventDefault();
-
-  // initialize expenses at 0 if there is no prior user data
-  if (!localStorage.getItem('userData')) {
-    const expenses = {
-      foodDrink: 0,
-      housing: 0,
-      insurance: 0,
-      loanPayment: 0,
-      transportation: 0,
-      utilities: 0,
-      entertainment: 0,
-      other: 0,
-    }
-    localStorage.setItem('expenses', JSON.stringify(expenses));
-  }
   
   // update stored expense data with new input values
   const storedExpenses = JSON.parse(localStorage.getItem('expenses'));
