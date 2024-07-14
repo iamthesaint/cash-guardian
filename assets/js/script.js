@@ -28,24 +28,32 @@ if (localStorage.getItem("visited") == null) {
 
 submitModal.addEventListener('click', function (event) {
   event.preventDefault();
-  let myModal = new bootstrap.Modal(document.getElementById('myModal'), {
-    keyboard: false
-  });
-  myModal.hide();
-  window.location.href = 'index.html';
-
+  let form = document.getElementById('modalForm');
+  if (form.checkValidity()) {
+    let myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+      keyboard: false
+    });
+    myModal.hide();
+    window.location.href = 'index.html';
+  
   const userData = {
     name: nameInput.value,
     salary: salaryInput.value,
   };
   localStorage.setItem('userData', JSON.stringify(userData));
-})
+} else {
+  form.reportValidity();
+}
+});
+
 
 // create welcome message with user's name from localstorage in .container-welcome
 const userData = JSON.parse(localStorage.getItem('userData'));
 if (userData) {
   document.getElementById('welcome-message').textContent = `Welcome, ${userData.name}!`;
 }
+
+
 
 //FORM & LOCAL STORAGE
 // update and store expenses to local storage
