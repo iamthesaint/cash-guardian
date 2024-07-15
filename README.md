@@ -12,6 +12,8 @@ We learned that there are so many components that go into creating a program. Ev
 
 Although this application might be considered as a glorified calculator of sorts, a good amount of hard work was put into this program to provide various ways the user can see their budgeting breakdown. Our team made sure the page was visually appealing and brought positivity because saving money is often not the most exciting activity.
 
+![CG screenshot](https://github.com/user-attachments/assets/e2863341-6d6a-4470-a91a-40a660a05b9b)
+
 ## Usage
 
 On first page load, there will be a modal that requires the user's name and monthly income. Their income will set their total budget for the month.
