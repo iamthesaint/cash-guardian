@@ -24,10 +24,11 @@ if (localStorage.getItem("visited") == null) {
   myModal.show();
 }
 
-// store user's name and salary
-
 submitModal.addEventListener('click', function (event) {
   event.preventDefault();
+
+  // check if the form is valid/do not allow empty fields
+
   let form = document.getElementById('modalForm');
   if (form.checkValidity()) {
     let myModal = new bootstrap.Modal(document.getElementById('myModal'), {
@@ -35,26 +36,26 @@ submitModal.addEventListener('click', function (event) {
     });
     myModal.hide();
     window.location.href = 'index.html';
-  
-  const userData = {
-    name: nameInput.value,
-    salary: salaryInput.value,
-  };
-  localStorage.setItem('userData', JSON.stringify(userData));
-} else {
-  form.reportValidity();
-}
+
+
+    //store user name and income in local storage
+
+    const userData = {
+      name: nameInput.value,
+      salary: salaryInput.value,
+    };
+    localStorage.setItem('userData', JSON.stringify(userData));
+  } else {
+    form.reportValidity();
+  }
 });
 
-
 // create welcome message with user's name from localstorage in .container-welcome
+
 const userData = JSON.parse(localStorage.getItem('userData'));
 if (userData) {
   document.getElementById('welcome-message').textContent = `Welcome, ${userData.name}!`;
 }
-
-
-
 //FORM & LOCAL STORAGE
 // update and store expenses to local storage
 
@@ -62,7 +63,9 @@ document.getElementById('submit-form').addEventListener('click', function (event
   // Prevent the default form submission
   event.preventDefault();
 
+
   // Get the current expenses from local storage
+
   let currentExpenses = JSON.parse(localStorage.getItem('currentExpenses')) || {
     entertainment: 0,
     foodDrink: 0,
@@ -75,6 +78,7 @@ document.getElementById('submit-form').addEventListener('click', function (event
   };
 
   // Update the current expenses with the user's input
+
   currentExpenses.entertainment += parseFloat(entertainmentInput.value) || 0;
   currentExpenses.foodDrink += parseFloat(foodDrinkInput.value) || 0;
   currentExpenses.housing += parseFloat(housingInput.value) || 0;
@@ -85,12 +89,23 @@ document.getElementById('submit-form').addEventListener('click', function (event
   currentExpenses.other += parseFloat(otherInput.value) || 0;
 
   // Save the updated expenses to local storage
+
   localStorage.setItem('currentExpenses', JSON.stringify(currentExpenses));
 
-  window.alert('Your expenses have been added!');
+  //alert here
+  const messageContainer = document.getElementById('expense-submit-message');
+  const messageElement = document.createElement('p');
+  messageElement.textContent = 'Your expenses have been added!';
+  messageElement.style.color = 'green';
+  messageContainer.appendChild(messageElement);
 
-//reload page so tables update dynamically with every expense submission
-window.location.reload();
+  //need to delay reload so the user can see the expenses-added success message
+
+  setTimeout(function () {
+    window.location.reload();
+  }, 900);
+
+  //reload page so tables update dynamically with every expense submission
 }
 );
 
@@ -151,67 +166,67 @@ if (!expenses) {
 
 //pie chart update with local storage
 
-const labels = ["Entertainment", "Food and Drink", "Housing", "Insurance", "Loan Payments", "Other", "Transportation", "Utilities"];; // Category names
+const labels = ["Entertainment", "Food and Drink", "Housing", "Insurance", "Loan Payments", "Transportation", "Utilities", "Other"];; // Category names
 
 const data = Object.values(expenses);
 
- // Corresponding amounts
+// corresponding amounts
 
 const ctx = document.getElementById('myChart').getContext('2d');
 const myPieChart =
 
 
-new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: labels,
-    datasets: [{
-      label: 'Expenses By Category',
-      data: data,
-      backgroundColor: [
-      'rgba(194, 249, 112, 0.7)',
-      'rgba(147, 250, 165, 0.7)',
-      'rgba(104, 195, 163, 0.7)',
-      'rgba(13, 180, 185, 0.7)',
-      'rgba(144, 198, 149, 0.7)',
-      'rgba(0, 230, 64, 0.7)',
-      'rgba(123, 239, 178, 0.7)',
-      'rgba(1, 152, 117, 0.7)'
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: '$',
+        data: data,
+        backgroundColor: [
+          'rgba(194, 249, 112, 0.7)',
+          'rgba(147, 250, 165, 0.7)',
+          'rgba(104, 195, 163, 0.7)',
+          'rgba(13, 180, 185, 0.7)',
+          'rgba(144, 198, 149, 0.7)',
+          'rgba(0, 230, 64, 0.7)',
+          'rgba(123, 239, 178, 0.7)',
+          'rgba(1, 152, 117, 0.7)'
 
-      ],
-      borderColor: [
-        'rgba(30, 130, 76, 1)',
-  
-      ],
-      borderWidth: 1,
-    }]
-  },
-  options: {
-    plugins: {
-    title: {
-      display: true,
-      text: 'EXPENSES BY CATEGORY',
-      font: {
-        size: 30,
-        color: 'black',
-      }
+        ],
+        borderColor: [
+          'rgba(30, 130, 76, 1)',
+
+        ],
+        borderWidth: 1,
+      }]
     },
-    responsive: true,
-    maintainAspectRatio: false,
-      legend: {
-        position: 'right'
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'EXPENSES BY CATEGORY',
+          font: {
+            size: 30,
+            color: 'black',
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          position: 'right'
+        },
       },
-    },
-    scales: {
-      y: {
-        beginAtZero: true
+      scales: {
+        y: {
+          beginAtZero: true
+        }
       }
     }
+
   }
 
-}
-
-);
+  );
 
 
 //progress bar update with local storage
@@ -229,36 +244,37 @@ document.getElementById('progress-bar').textContent = `${progress.toFixed(2)}%`;
 const ctx1 = document.getElementById('myChart1');
 const myLineChart =
 
-new Chart(ctx1, {
-  type: 'line',
-  data: {
-    labels: labels,
-    datasets: [{
-      label: 'Money Spent ($)',
-      data: data,
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      title: {
-        display: true,
-        text: 'SPENDING TRENDS',
-        font: {
-          size: 30,
-          color: 'black',
+  new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Money Spent ($)',
+        data: data,
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: 'SPENDING TRENDS',
+          font: {
+            size: 30,
+            
+            color: 'black',
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-      },
-    scales: {
-      y: {
-        beginAtZero: true
       }
     }
-  }
-}
-});
+  });
 
 // Displaying Expense Inputs in Form
 function displayEntertainment() {
