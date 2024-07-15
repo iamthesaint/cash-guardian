@@ -101,6 +101,7 @@ document.getElementById('submit-form').addEventListener('click', function (event
 
   //need to delay reload so the user can see the expenses-added success message
 
+
   setTimeout(function () {
     window.location.reload();
   }, 900);
