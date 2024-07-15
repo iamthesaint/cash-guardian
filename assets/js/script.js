@@ -99,18 +99,17 @@ document.getElementById('submit-form').addEventListener('click', function (event
   messageElement.style.color = 'green';
   messageContainer.appendChild(messageElement);
 
-  //need to delay reload so the user can see the expenses-added success message
-
+//need to delay reload so the user can see the expenses-added success message
+//reload page so tables update dynamically with every expense submission
 
   setTimeout(function () {
     window.location.reload();
   }, 900);
-
-  //reload page so tables update dynamically with every expense submission
 }
 );
 
-// Dynamic Table Creation
+// dynamic table creation
+
 const expenses = JSON.parse(localStorage.getItem('currentExpenses'));
 
 if (!expenses) {
@@ -231,9 +230,7 @@ const myPieChart =
 
   );
 
-
 //progress bar update with local storage
-
 
 const totalExpenses = data.reduce((total, amount) => total + amount, 0);
 const salary = JSON.parse(localStorage.getItem('userData')).salary;
@@ -270,18 +267,18 @@ const myLineChart =
             color: 'black',
           }
         }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              callback: function (labels) {
-                return '$' + labels;
-              }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function (labels) {
+              return '$' + labels;
             }
           }
         }
       }
+    }
   });
 
 // Displaying Expense Inputs in Form
