@@ -101,6 +101,7 @@ document.getElementById('submit-form').addEventListener('click', function (event
 
   //need to delay reload so the user can see the expenses-added success message
 
+
   setTimeout(function () {
     window.location.reload();
   }, 900);
@@ -134,6 +135,8 @@ if (!expenses) {
     amountCell.textContent = amount;
     row.appendChild(categoryCell);
     row.appendChild(amountCell);
+    const formattedAmount = '$' + amount;
+    amountCell.textContent = formattedAmount;
     table.appendChild(row);
 
     function getCategoryLabel(category) {
@@ -263,17 +266,22 @@ const myLineChart =
           text: 'SPENDING TRENDS',
           font: {
             size: 30,
-            
+
             color: 'black',
           }
+        }
         },
         scales: {
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+              callback: function (labels) {
+                return '$' + labels;
+              }
+            }
           }
         }
       }
-    }
   });
 
 // Displaying Expense Inputs in Form

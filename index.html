@@ -67,6 +67,11 @@
           <div class="modal-footer" id="modal-button">
             <button type="button" class="btn btn-primary btn-small" id="submit-modal">Submit</button>
           </div>
+
+
+          <div class="modal-footer" id="modal-button">
+            <button type="button" class="btn btn-primary btn-small" id="submit-modal">Submit</button>
+          </div>
         </div>
       </div>
     </div>
@@ -85,99 +90,101 @@
           </div>
         </div>
 
-    <div class="main-content">
+        <div class="main-content">
 
-      <!-- form -->
+          <!-- form -->
 
-      <aside class="sticky-aside">
-        <h2 id="blink" style="text-align: left; font-family: 'Optima'; font-size: 30px"><em>Start Here.<br>Add Your Expenses...</em></h2>
-        <br>
-        <form id=" asideForm">
-          <div id=" info-button">
 
-            <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-              data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
-              Click for Instructions
-            </button>
+          <aside class="sticky-aside">
+            <h2 id="blink" style="text-align: left; font-family: 'Optima'; font-size: 30px"><em>Start Here.<br>Add Your
+                Expenses...</em></h2>
+            <br>
+            <form id=" asideForm">
+              <div id=" info-button">
 
-            <div class="collapse" id="form-info" style="text-align: left;">
-              1. Check the boxes of the categories you would like to spend-track. <br> <br>
+                <button id="collapse-info" class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#form-info" aria-expanded="false" aria-controls="form-info">
+                  Click for Instructions
+                </button>
 
-              2. Enter your expense amounts in the input boxes provided. <br> <br>
+                <div class="collapse" id="form-info" style="text-align: left;">
+                  1. Check the boxes of the categories you would like to spend-track. <br> <br>
 
-              3. Click the submit button!
-            </div>
-          </div>
-          <br>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
-              onclick="displayEntertainment()">
-            <label class="form-check-label" for="entertainment-check">
-              Entertainment
-            </label>
-            <input type="text" id="entertainment" style="display:none">
-          </div>
+                  2. Enter your expense amounts in the input boxes provided. <br> <br>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
-              onclick="displayFoodDrink()">
-            <label class="form-check-label" for="food-and-drink-check">
-              Food & Drink
-            </label>
-            <input type="text" id="food-and-drink" style="display:none">
-          </div>
+                  3. Click the submit button!
+                </div>
+              </div>
+              <br>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="entertainment-check"
+                  onclick="displayEntertainment()">
+                <label class="form-check-label" for="entertainment-check">
+                  Entertainment
+                </label>
+                <input type="text" id="entertainment" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
-            <label class="form-check-label" for="housing-check">
-              Housing
-            </label>
-            <input type="text" id="housing" style="display:none">
-          </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="food-and-drink-check"
+                  onclick="displayFoodDrink()">
+                <label class="form-check-label" for="food-and-drink-check">
+                  Food & Drink
+                </label>
+                <input type="text" id="food-and-drink" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="insurance-check" onclick="displayInsurance()">
-            <label class="form-check-label" for="insurance-check">
-              Insurance
-            </label>
-            <input type="text" id="insurance" style="display:none">
-          </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="housing-check" onclick="displayHousing()">
+                <label class="form-check-label" for="housing-check">
+                  Housing
+                </label>
+                <input type="text" id="housing" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
-              onclick="displayLoanPayments()">
-            <label class="form-check-label" for="loan-payments-check">
-              Loan Payments
-            </label>
-            <input type="text" id="loan-payments" style="display:none">
-          </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="insurance-check"
+                  onclick="displayInsurance()">
+                <label class="form-check-label" for="insurance-check">
+                  Insurance
+                </label>
+                <input type="text" id="insurance" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="transportation-check"
-              onclick="displayTransportation()">
-            <label class="form-check-label" for="transportation-check">
-              Transportation
-           </label>
-            <input type="text" id="transportation" style="display:none">
-          </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="loan-payments-check"
+                  onclick="displayLoanPayments()">
+                <label class="form-check-label" for="loan-payments-check">
+                  Loan Payments
+                </label>
+                <input type="text" id="loan-payments" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="utilities-check" onclick="displayUtilities()">
-            <label class="form-check-label" for="utilities-check">
-              Utilities
-            </label>
-            <input type="text" id="utilities" style="display:none">
-          </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="transportation-check"
+                  onclick="displayTransportation()">
+                <label class="form-check-label" for="transportation-check">
+                  Transportation
+                </label>
+                <input type="text" id="transportation" style="display:none">
+              </div>
 
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
-            <label class="form-check-label" for="other-check">
-              Other
-            </label>
-            <input type="text" id="other" style="display:none">
-          </div>
-          </form>
-          <br>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="utilities-check"
+                  onclick="displayUtilities()">
+                <label class="form-check-label" for="utilities-check">
+                  Utilities
+                </label>
+                <input type="text" id="utilities" style="display:none">
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="other-check" onclick="displayOther()">
+                <label class="form-check-label" for="other-check">
+                  Other
+                </label>
+                <input type="text" id="other" style="display:none">
+
 
           <div id="form-button">
             <button type="submit" id="submit-form">
@@ -206,44 +213,76 @@
                     id=progress-bar aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                   </div>
                 </div>
+
+              </div>
+            </form>
+            <br>
+
+            <div id="form-button">
+              <button type="submit" id="submit-form">
+                <div class="d-flex justify-content-center">
+                  Submit
+              </button>
+            </div>
+            <div id="expense-submit-message"></div>
+            </form>
+          </aside>
+
+          <div class="container">
+
+            <!-- progress bar -->
+
+            <div class="row">
+              <div class="col-6">
+                <div class="card widget-flat">
+                  <div class="card-body">
+                    <div class="text-center">
+                    </div>
+                    <h5 class="text-muted fw-normal mt-0" title="Amount of Income Spent">Percent of Income Spent</h5>
+
+                    <div class="progress" style="height: 30px">
+                      <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar"
+                        id=progress-bar aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- line graph card -->
+
+              <div class="col-6">
+                <div class="card">
+                  <div class="card-body">
+                    <canvas id="myChart1"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <!-- pie chart card -->
+
+              <div class="col-8">
+                <div class="card">
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- table card -->
+            <div class="col-9">
+              <div class="row">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Recently Added Spending</h5>
+
+                    <div id="expensesTableContainer"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <!-- line graph card -->
-
-          <div class="col-6">
-            <div class="card">
-              <div class="card-body">
-                <canvas id="myChart1"></canvas>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-
-          <!-- pie chart card -->
-
-          <div class="col-8">
-            <div class="card">
-              <canvas id="myChart"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <!-- table card -->
-<div class="col-9">
-        <div class="row">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Recently Added Spending</h5>
-
-              <div id="expensesTableContainer"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
   </main>
   </div>
 
@@ -284,9 +323,13 @@
             <h6 class="text-uppercase fw-bold">Tools</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p>
+              <a href="https://www.chartjs.org/" class="text-dark">Chart.js</a>
+            </p>
+            <p>
               <a href="https://getbootstrap.com/" class="text-dark">Bootstrap</a>
             </p>
             <p>
+
               <a href="https://github.com/" class="text-dark">GitHub</a>
             </p>
           </div>
@@ -297,18 +340,20 @@
             <h6 class="text-uppercase fw-bold">Contact Us</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
             <p><i class="fas fa-home mr-3"></i> Empire State Building, New York, NY 10012, US</p>
-            <p><i class="fas fa-envelope mr-3"></i> cashguardian@example.com</p>
+            <p><i class="fas fa-envelope mr-3"></i>support@cashguardian.com</p>
             <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
           </div>
           <!-- Grid column -->
         </div>
         <!-- Grid row -->
       </div>
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2024 Copyright:
-      <a class="text-dark" href="https://iamthesaint.github.io/cash-guardian/">Cash Guardian</a>
-    </div>
+
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2024
+        <a class="text-dark" href="https://iamthesaint.github.io/cash-guardian/">Cash Guardian</a>
+      </div>
+
   </footer>
   </div>
 </body>
