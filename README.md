@@ -14,6 +14,8 @@ Although this application might be considered as a glorified calculator of sorts
 
 ![CG screenshot](https://github.com/user-attachments/assets/e2863341-6d6a-4470-a91a-40a660a05b9b)
 
+Deployed Site: https://iamthesaint.github.io/cash-guardian/
+
 ## Usage
 
 On first page load, there will be a modal that requires the user's name and monthly income. Their income will set their total budget for the month.
