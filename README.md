@@ -2,27 +2,16 @@
 
 ## Description
 
-Our team was motivated to work on this project because everyone cares about money to some degree. Whether you have a little or a lot, it's an important part of our everyday lives.
-
-We wanted to build something helpful for anyone who wants to try the program and something useful for people that use the program daily. The project also has the potential for impactful future development such as widget additions, attachment to bank account, and push notifications.
-
-Many people have no idea what they spend the most money on or have no idea where they spend it all until it becomes a problem. This application allows users to keep an eye on their spending on a daily basis. This will likely help someone save for something big as well as simply provide them with a breakdown of their income and outcome.
-
-We learned that there are so many components that go into creating a program. Even just the smallest visuals have lines of CSS code and it can take multiple functions and event listeners to make one button work in its intended way.
-
-Although this application might be considered as a glorified calculator of sorts, a good amount of hard work was put into this program to provide various ways the user can see their budgeting breakdown. Our team made sure the page was visually appealing and brought positivity because saving money is often not the most exciting activity.
-
+Cash Guardia is a user-friendly visual budgeting tool. It allows the user to input  expenses and provides a breakdown of cashflow using detailed charts and graphs. With visual insight into income and expenses, Cash Guardian effectively helps users control their spending habits and maintain their budget goals. CG provides a aving for something big, or just looking to optimize overall financial health
 ![CG screenshot](https://github.com/user-attachments/assets/e2863341-6d6a-4470-a91a-40a660a05b9b)
 
 Deployed Site: https://iamthesaint.github.io/cash-guardian/
 
 ## Usage
 
-On first page load, there will be a modal that requires the user's name and monthly income. Their income will set their total budget for the month.
+Upon first visit to the site, user will be asked to provide baseline financial information and categorical spending.
 
-On the left side there is a form, the form should be completed on a daily basis in order to fully track the user's monthly spending. The user can choose which categories they spent money on today and type in the amount in the box below.
-
-When they submit their spending information, the graphs and charts on the right side will update with the current data. Their spending information will add on to their previous expenses and will continue to track the total amount until the end of the month.
+When monetary information is submitted, the graphs and charts on the right side will dynamically update with the current data. Each time income and expense information is added, CG will aggregate the data and provide a comprehensive outline of spending habits.
 
 ## Credits
 
