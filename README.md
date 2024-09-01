@@ -2,7 +2,7 @@
 
 ## Description
 
-Cash Guardia is a user-friendly visual budgeting tool. It allows the user to input  expenses and provides a breakdown of cashflow using detailed charts and graphs. With visual insight into income and expenses, Cash Guardian effectively helps users control their spending habits and maintain their budget goals. CG provides a aving for something big, or just looking to optimize overall financial health
+Cash Guardia is a user-friendly visual budgeting tool. It allows the user to input  expenses and provides a breakdown of cashflow using detailed charts and graphs. With visual insight into income and expenses, Cash Guardian effectively helps users control their spending habits and maintain their budget goals. CG provides a solution whether the user is saving for something big, or just looking to optimize overall financial health
 ![CG screenshot](https://github.com/user-attachments/assets/e2863341-6d6a-4470-a91a-40a660a05b9b)
 
 Deployed Site: https://iamthesaint.github.io/cash-guardian/
